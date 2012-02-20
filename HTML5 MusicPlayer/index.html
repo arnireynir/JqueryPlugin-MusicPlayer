@@ -2,18 +2,33 @@
 <html lang="is">
 	<head>
 		<title>Music Player TEST!</title>
-		<link rel="stylesheet" type="text/css" href="playerstyle.css" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="playerstyle.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="musicplayer.js"></script>
 		<script type="text/javascript" src="modernizr.js"></script>
 	</head>
 <body>
-	<audio>
-	<source src="song.ogg" type="audio/ogg" />
-	<source src="song.mp3" type="audio/mpeg" />
- 	<p>Your browser does not support the audio element.</p>
-</audio>
+	<div id="thePlayer"></div> <!-- this element will host the player!! -->
+	<p>The latest and greatest music player</p>
+
+    <script type="text/javascript" >
+
+         $(document).ready( function( ) {
+
+              // Note: this version assumes a JavaScript array of songs, but
+              // the other approach is also acceptable
+              var playlist = [ "http://path.to/first_song.mp3",
+                               "http://path.to/second_song.mp3",
+                               "http://path.to/third_song.mp3" ];
+
+              $("#thePlayer").musicPlayer( playlist );
+              // Optionally, the function should accept an object containing optional values, 
+              // such as a boolean "autostart" value, i.e. if the player should start playing
+              // immediately etc.
+         });
+
+    </script>
 
 </body>
 </html>
