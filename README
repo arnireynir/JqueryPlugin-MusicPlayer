@@ -1,31 +1,3 @@
 Daily workflow : http://nakedstartup.com/2010/04/simple-daily-git-workflow
 
 
-1.Make sure you are up to date before your start to work!
-	git checkout master git pull
-
-
-2.When we are working on issues or new version etc.... we branch
-	git checkout -b your-branch-name-here
-	This creates a new branch for you to start making you changes and switches you into it.
-
-	Do your work here! The key thing to remember at this stage is to commit often, *really often* the smaller your commits the more you can undo any damage or later go back and see what you did. Whether its a change of layout of a single template or a single test passing commit it separately.
-
-3. To get status of change file and stuff
-	git status
-
-4.To Add every files that as been worked on use
-		git add .
-		or 
-		'git add your/filename/here'
-
-5. How to commit !
-	git commit -m "detailed message here"
-
-6.Once your feature is complete or your bug is squashed it's time to bring the master branch up to date.
-	git checkout master git merge your-branch-name-here
-
-	and repreat
-
-	 For your next feature or bug just create another new branch
-
