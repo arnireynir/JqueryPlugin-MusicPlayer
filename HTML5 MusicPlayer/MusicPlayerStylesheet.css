@@ -1,0 +1,129 @@
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('MyriadPro-Regular.otf');
+}
+
+body {
+	font-family: 'MyriadPro';
+}
+
+/* Music player body */
+#mpBody {
+	width: 350px;
+	height: 500px;
+	border: 1px solid #bbb;
+}
+
+/* Display section */
+#mpDisplay {
+	width: 100%;
+	height: 115px;
+	border-bottom: 1px solid #ddd;
+}
+
+/* Duration bar */
+#mpDuration {
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #000;
+}
+
+/* Duration time */
+#mpDurationTime {
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	padding-top: 2%;
+	padding-left: 2%;
+}
+
+/* Tracks container */
+#mpTracks {
+	height: 100%;
+	width: 100%;
+}
+
+/* Tracks top section */
+#mpTracksTop {
+	float: left;
+	width: 90%;
+	height: 40px;
+	margin-top: -2%;
+	margin-left: 5%;
+	margin-right: auto;
+	border-bottom: 1px solid #ddd;
+}
+
+#mpDfnPlaylist {
+	float: left;
+	width: auto;
+	height: 23px;
+	margin-top: 17px;
+	font-size: 12pt;
+	font-style: normal;
+}
+
+/* Controls */
+#mpControls {
+	float: right;
+	margin-top: 16px;
+	width: auto;
+	height: auto;
+}
+
+.mpControlsBorderRight {
+	border-right: 1px solid #ccc;
+}
+
+#mpControls span {
+	width: 20px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#mpControls span:hover {
+	background: #E1E1E1;
+}
+
+
+
+#mpDisplayMute {
+	width: 100%;
+	text-align: right;
+}
+
+#mpDisplayTitlesContainer {
+	width: 92%;
+	padding-left: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	border-left: 1px solid #ccc;
+}
+
+#mpDisplayArtist {
+	font-size: 16pt;
+}
+
+#mpDisplaySong {
+	margin-top: -5px;
+	font-size: 28pt;
+}
+
+#mpDisplayAlbum {
+	font-size: 10pt;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
