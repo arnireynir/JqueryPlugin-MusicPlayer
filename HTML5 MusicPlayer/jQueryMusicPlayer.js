@@ -4,20 +4,23 @@
 	$.fn.extend ({            
 		  
 		// Music Player plugin begins      
-		musicPlayer: function(playlist) { 
+		musicPlayer: function(playlist) {
+			//Icons used in player 
 			var pauseButtonSrc = "Icons/Pause.png"
 			var stopButtonSrc = "Icons/Stop.png"
 			var backButtonSrc = "Icons/Back.png"
 			var forwardButtonSrc = "Icons/Forward.png"
 			var shuffleButtonSrc = "Icons/Shuffle.png"
 			
+			//Constuctor for Song
 			var Song = function (artist, song, album) {
 				this.artist = artist;
 				this.song = song;
 				this.album = album;
 			};
 		
-			// Iterate over the current set of matched elements     		
+			// Iterate over the current set of matched elements
+			// Calls all nessasary function for player to run     		
 			return this.each(function() { 
 				var MusicPlayer = $(this);
 				
@@ -36,6 +39,7 @@
 					
 				$('#mpBody').append
 					('<section id="mpDuration"></section>'); // Duration bar
+				
 				$('#mpDuration').append
 					('<div id="mpDurationTime">2:39</div>'); // Duration time
 					
@@ -44,8 +48,10 @@
 				
 				$('#mpTracks').append
 					('<section id="mpTracksTop"></section>'); // Tracks top section ("Playlist" label and controls)
+				
 				$('#mpTracksTop').append
 					('<dfn id="mpDfnPlaylist">Playlist</dfn>'); // "Playlist" label
+				
 				$('#mpTracksTop').append
 					('<section id="mpControls"></section>'); // Controls bar
 			}
@@ -58,7 +64,7 @@
 					"<span class='mpControlsBorderRight'><img id='btnBack' src='" + backButtonSrc + "' alt='Back' /></span>" +
 					"<span class='mpControlsBorderRight'><img id='btnForward' src='" + forwardButtonSrc + "' alt='Forward' /></span>" +
 					"<span><img id='btnShuffle' src='" + shuffleButtonSrc + "' alt='Shuffle' /></span>";
-				$('#mpControls').append
+				$('#mpControls').append //Sending list of controles to view
 					(controlItems);
 					
 				// Display items (artist, song and album)
