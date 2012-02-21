@@ -1,3 +1,10 @@
 Daily workflow : http://nakedstartup.com/2010/04/simple-daily-git-workflow
 
+To delete from the repo 
 
+You can use
+
+git add -u
+To add the deleted files to the staging area, then commit them
+
+git commit -m "Deleted files manually"
