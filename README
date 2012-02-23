@@ -8,3 +8,6 @@ git add -u
 To add the deleted files to the staging area, then commit them
 
 git commit -m "Deleted files manually"
+
+
+Test after Format!
