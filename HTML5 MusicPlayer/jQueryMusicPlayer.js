@@ -39,6 +39,14 @@ var Song = function (artist, song, album, url) {
 					
 					updateDisplay(playlist[0], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 					updateTrackTheme(counter);
+
+                    audioElement.addEventListener("timeupdate", function() {
+                        var duration = document.getElementById('mpDurationTime');
+                        var s = parseInt(audioElement.currentTime % 60);
+                        var m = parseInt((audioElement.currentTime / 60) % 60);
+                        //$('#mpDurationTime').text(m + ':' + s )
+                        mpDurationTime.innerHTML = m + '.' + s + 'sec';
+                    }, false);
 					
 					$('.mpPlaylistTrack').live('click', function(e) { // Change color of the selected track
 						var tracks = $('.mpPlaylistTrack');
@@ -155,7 +163,7 @@ var Song = function (artist, song, album, url) {
 					('<section id="mpDuration"></section>'); // Duration bar
 				
 				$('#mpDuration').append
-					('<div id="mpDurationTime">2:39</div>'); // Duration time
+					('<div id="mpDurationTime">0:00</div>'); // Duration time
 					
 				$('#mpBody').append
 					('<div id="mpTracks"></div>'); // Tracks container
@@ -221,6 +229,7 @@ var Song = function (artist, song, album, url) {
 				}
 				tracks[cntr].className = "mpPlaylistTrack mpTheme";
 			}
+
 		} // musicPlayer ends
 		
 	}); // jQuery extension ends
