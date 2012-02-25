@@ -14,7 +14,7 @@ var Song = function (artist, song, album, url) {
 		// Music Player plugin begins      
 		musicPlayer: function(playlist) {
 			//Icons used in player 
-			var playButtonSrc = "Icons/Play.png"
+			var playButtonSrc = "Icons/Shuffle.png"
 			var pauseButtonSrc = "Icons/Pause.png"
 			var previousButtonSrc = "Icons/Back.png"
 			var nextButtonSrc = "Icons/Forward.png"
@@ -53,8 +53,16 @@ var Song = function (artist, song, album, url) {
 					 
 					 $('#btnPlayPause').live('click', function() {					
 						audioElement.src = playlist[counter].url;
-						audioElement.play();
-						
+
+						var playPause = $('#btnPlayPause').attr("src");
+                         if (playPause == playButtonSrc){
+                            $('#btnPlayPause').attr("src", pauseButtonSrc);
+                            audioElement.play();
+                         }
+                         else {
+                             $('#btnPlayPause').attr("src", playButtonSrc)
+                             audioElement.pause();
+                         }
 						updateDisplay(playlist[counter], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 						updateTrackTheme(counter);
 					 });
@@ -63,17 +71,23 @@ var Song = function (artist, song, album, url) {
 						counter++;
 						if (counter < playlist.length) {
 							audioElement.src = playlist[counter].url;
-							audioElement.play();
+                            $('#btnPlayPause').attr("src", pauseButtonSrc);
+                            audioElement.play();
 						}
 						else {
 							counter = 0;
 							audioElement.src = playlist[counter].url;
-							audioElement.play();
+                            $('#btnPlayPause').attr("src", pauseButtonSrc);
+                            audioElement.play();
 						}
-						
+
 						updateDisplay(playlist[counter], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 						updateTrackTheme(counter);
 					 });
+
+                    $('#btnShuffle').live('click', function(e) {
+
+                    });
 					 
 					 $('#btnPrevious').live('click', function() {
 						if (counter > 0) {
@@ -85,12 +99,14 @@ var Song = function (artist, song, album, url) {
 						
 						if (counter < playlist.length) {
 							audioElement.src = playlist[counter].url;
-							audioElement.play();
+                            $('#btnPlayPause').attr("src", pauseButtonSrc);
+                            audioElement.play();
 						}
 						else {
 							counter = 0;
 							audioElement.src = playlist[counter].url;
-							audioElement.play();
+                            $('#btnPlayPause').attr("src", pauseButtonSrc);
+                            audioElement.play();
 						}
 						
 						updateDisplay(playlist[counter], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
@@ -150,7 +166,7 @@ var Song = function (artist, song, album, url) {
 			function generateElements () { // Creates the elements (i.e. control buttons, artist div...)
 				// Controls
 				var controlItems = 
-					"<span class='mpControlsBorderRight'><img id='btnPlayPause' src='" + pauseButtonSrc + "' alt='Play/Pause' /></span>" +
+					"<span class='mpControlsBorderRight'><img id='btnPlayPause' src='" + playButtonSrc + "' alt='Play/Pause' /></span>" +
 					"<span class='mpControlsBorderRight'><img id='btnPrevious' src='" + previousButtonSrc + "' alt='Previous' /></span>" +
 					"<span class='mpControlsBorderRight'><img id='btnNext' src='" + nextButtonSrc + "' alt='Next' /></span>" +
 					"<span><img id='btnShuffle' src='" + shuffleButtonSrc + "' alt='Shuffle' /></span>";
