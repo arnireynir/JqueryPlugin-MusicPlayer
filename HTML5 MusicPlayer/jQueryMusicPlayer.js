@@ -33,19 +33,26 @@ var Song = function (artist, song, album, url) {
 					generateElements ();
 					loadPlaylistToUI(playlist, "#mpTracks");
 					
-					$('#mpBody').append("<audio id='html5Player'></audio>");
+					$('#mpBody').append("<audio id='html5Player' preload='auto'></audio>");
 					var audioElement = document.getElementById("html5Player");
 					var counter = 0;
 					
 					updateDisplay(playlist[0], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 					updateTrackTheme(counter);
 
+                    //Duration time displayed and updated.
                     audioElement.addEventListener("timeupdate", function() {
                         var duration = document.getElementById('mpDurationTime');
                         var s = parseInt(audioElement.currentTime % 60);
                         var m = parseInt((audioElement.currentTime / 60) % 60);
-                        //$('#mpDurationTime').text(m + ':' + s )
-                        mpDurationTime.innerHTML = m + '.' + s + 'sec';
+                        if(s < 10){
+                            $(duration).text(m + ':' + '0'+s )
+                        }
+                        else{
+                            $(duration).text(m + ':' + s )
+                        }
+
+                        //mpDurationTime.innerHTML = m + '.' + s + 'sec';
                     }, false);
 					
 					$('.mpPlaylistTrack').live('click', function(e) { // Change color of the selected track
@@ -58,7 +65,8 @@ var Song = function (artist, song, album, url) {
 						var currentSong = playlist[e.currentTarget.id.substring(e.currentTarget.id.length - 1, e.currentTarget.id.length)];
 						updateDisplay(currentSong, "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 					 }); 
-					 
+
+                    //Play/Pause button and which img.
 					 $('#btnPlayPause').live('click', function() {					
 						audioElement.src = playlist[counter].url;
 
@@ -74,7 +82,7 @@ var Song = function (artist, song, album, url) {
 						updateDisplay(playlist[counter], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 						updateTrackTheme(counter);
 					 });
-					 
+					 //Selects next song from array and updates playbutton & display
 					 $('#btnNext').live('click', function(e) {
 						counter++;
 						if (counter < playlist.length) {
@@ -92,7 +100,7 @@ var Song = function (artist, song, album, url) {
 						updateDisplay(playlist[counter], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 						updateTrackTheme(counter);
 					 });
-
+                    //Selects random song from playlist array and updates playbutton & display
                     $('#btnShuffle').live('click', function(e) {
                         var rn=Math.floor(Math.random()*playlist.length);
                         audioElement.src = playlist[rn].url;

@@ -83,7 +83,8 @@ body {
 }
 
 #mpControls span:hover {
-	background: #E1E1E1;
+
+    border-bottom: 3px solid #F7941E;
 }
 
 
@@ -104,7 +105,7 @@ body {
 }
 
 .mpPlaylistTrack:hover {
-	background: #e1e1e1;
+    background: #f0f0f0;
 }
 
 .mpTheme {
