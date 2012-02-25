@@ -98,12 +98,14 @@ var Song = function (artist, song, album, url) {
 					 });
 					 
 					 $('#btnMute').live('click', function() {
-						var mute = $('#btnMute').attr("src");
+                        var mute = $('#btnMute').attr("src");
 						if (mute == muteOffButtonSrc) {
 							$('#btnMute').attr("src", muteOnButtonSrc);
+                            audioElement.volume = 0;
 						}
 						else {
 							$('#btnMute').attr("src", muteOffButtonSrc);
+                            audioElement.volume = 1;
 						}
 					 });
 				}
