@@ -52,7 +52,7 @@ var Song = function (artist, song, album, url) {
                             $(duration).text(m + ':' + s )
                         }
 
-                        //mpDurationTime.innerHTML = m + '.' + s + 'sec';
+                        
                     }, false);
 					
 					$('.mpPlaylistTrack').live('click', function(e) { // Change color of the selected track
