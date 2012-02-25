@@ -86,7 +86,14 @@ var Song = function (artist, song, album, url) {
 					 });
 
                     $('#btnShuffle').live('click', function(e) {
+                        var rn=Math.floor(Math.random()*playlist.length);
+                        audioElement.src = playlist[rn].url;
+                        $('#btnPlayPause').attr("src", pauseButtonSrc);
+                        alert(rn);
+                        audioElement.play();
 
+                        updateDisplay(playlist[rn], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
+                        updateTrackTheme(rn);
                     });
 					 
 					 $('#btnPrevious').live('click', function() {
