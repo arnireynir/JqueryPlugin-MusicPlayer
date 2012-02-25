@@ -3,11 +3,11 @@
 <head>    
 	<title>The latest and greatest music player</title>
     <link href="MusicPlayerStylesheet.css" rel="stylesheet" type="text/css" />
-    <script src="jquery.min.js" ></script>
+    <script src="jquery.min.js"></script>
+	<script src="modernizr.js"></script>
+	<script src="niftyplayer/niftyplayer.js"></script>
     <!-- TODO: your MusicPlayer jQuery plugin reference!!!! -->
 	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" ></script>-->
-	<script src="jquery.min.js" ></script>
-	<link href="MusicPlayerStylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 <head>
 
@@ -18,16 +18,17 @@
     <script type="text/javascript" >
          $(document).ready( function( ) {
 
-              // Note: this version assumes a JavaScript array of songs, but
-              // the other approach is also acceptable
-              var playlist = [ "http://path.to/first_song.mp3",
-                               "http://path.to/second_song.mp3",
-                               "http://path.to/third_song.mp3" ];
+			// Note: this version assumes a JavaScript array of songs, but
+			// the other approach is also acceptable
+			/* Song(artist, song, album, urlToSong) */						   
+			var playlist = [ new Song("Wu-Tang Clan", "Duck Seazon", "Wu-Tang Forever", "http://open.is/jQueryMusicPlayer/Wu-Tang-DuckSeazon.mp3"),
+							 new Song("Britney Spears", "Toy Soldier", "Blackout", "http://open.is/jQueryMusicPlayer/britneyspears-toysoldier.mp3"),
+							 new Song("Bitter Butter", "English", "It's Not Me, It's You", "niftyplayer/betty.mp3")];
 
-			  $("#thePlayer").musicPlayer(playlist);
-              // Optionally, the function should accept an object containing optional values, 
-              // such as a boolean "autostart" value, i.e. if the player should start playing
-              // immediately etc.
+			$("#thePlayer").musicPlayer(playlist);
+			// Optionally, the function should accept an object containing optional values, 
+			// such as a boolean "autostart" value, i.e. if the player should start playing
+			// immediately etc.
          });
     </script>
 	

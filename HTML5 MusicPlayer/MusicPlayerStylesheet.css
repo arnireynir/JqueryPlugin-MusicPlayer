@@ -47,10 +47,10 @@ body {
 /* Tracks top section */
 #mpTracksTop {
 	float: left;
-	width: 90%;
+	width: 93%;
 	height: 40px;
 	margin-top: -2%;
-	margin-left: 5%;
+	margin-left: 3%;
 	margin-right: auto;
 	border-bottom: 1px solid #ddd;
 }
@@ -87,7 +87,31 @@ body {
 }
 
 
+/* Playlist */
+#mpPlaylistContainer {
+	float: left;
+	width: 90%;
+	height: auto;
+	margin-top: 6px;
+	margin-left: 15px;
+	margin-right: auto;
+}
 
+.mpPlaylistTrack {
+	width: 100%;
+	margin-bottom: 3px;
+	font-size: 13px;
+}
+
+.mpPlaylistTrack:hover {
+	background: #e1e1e1;
+}
+
+.mpTheme {
+	color: #F7941E;
+}
+
+/* Display section */
 #mpDisplayMute {
 	width: 100%;
 	text-align: right;
@@ -114,8 +138,6 @@ body {
 #mpDisplayAlbum {
 	font-size: 10pt;
 }
-
-
 
 
 
