@@ -39,10 +39,18 @@ var Song = function (artist, song, album, url) {
 					
 					updateDisplay(playlist[0], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 					updateTrackTheme(counter);
+					
+					$('#mpDuration').progressbar({ value: 0 });
+					//$('#mpDurationSlider').slider();
 
                     //Duration time displayed and updated.
-                    audioElement.addEventListener("timeupdate", function() {
-                        var duration = document.getElementById('mpDurationTime');
+                    audioElement.addEventListener("timeupdate", function() {						
+                        var len = audioElement.duration;
+						var secs = audioElement.currentTime;
+						var prog = (secs / len ) * 100;
+						$('#mpDuration').progressbar("option", "value", prog);
+						
+						var duration = document.getElementById('mpDurationTime');
                         var s = parseInt(audioElement.currentTime % 60);
                         var m = parseInt((audioElement.currentTime / 60) % 60);
                         if(s < 10){
@@ -51,8 +59,7 @@ var Song = function (artist, song, album, url) {
                         else{
                             $(duration).text(m + ':' + s )
                         }
-
-                        
+						
                     }, false);
 					
 					$('.mpPlaylistTrack').live('click', function(e) { // Change color of the selected track
@@ -73,11 +80,11 @@ var Song = function (artist, song, album, url) {
 						var playPause = $('#btnPlayPause').attr("src");
                          if (playPause == playButtonSrc){
                             $('#btnPlayPause').attr("src", pauseButtonSrc);
-                            audioElement.play();
+							
                          }
                          else {
-                             $('#btnPlayPause').attr("src", playButtonSrc)
-                             audioElement.pause();
+                             $('#btnPlayPause').attr("src", playButtonSrc);
+							 
                          }
 						updateDisplay(playlist[counter], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 						updateTrackTheme(counter);
@@ -172,6 +179,9 @@ var Song = function (artist, song, album, url) {
 				
 				$('#mpDuration').append
 					('<div id="mpDurationTime">0:00</div>'); // Duration time
+					
+				$('#mpDuration').append
+					('<div id="mpDurationSlider"></div>'); // Slider
 					
 				$('#mpBody').append
 					('<div id="mpTracks"></div>'); // Tracks container
