@@ -40,6 +40,14 @@ var Song = function (artist, song, album, url) {
 					updateDisplay(playlist[0], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 					updateTrackTheme(counter);
 
+                    //Play next song when end of song
+                    $(audioElement).bind( 'ended', function( ){
+                        counter++;
+                        audioElement.src = songs [ counter ];
+                        audioElement.play( );
+                    });
+
+
                     //Duration time displayed and updated.
                     audioElement.addEventListener("timeupdate", function() {
                         var duration = document.getElementById('mpDurationTime');
@@ -105,7 +113,6 @@ var Song = function (artist, song, album, url) {
                         var rn=Math.floor(Math.random()*playlist.length);
                         audioElement.src = playlist[rn].url;
                         $('#btnPlayPause').attr("src", pauseButtonSrc);
-                        alert(rn);
                         audioElement.play();
 
                         updateDisplay(playlist[rn], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
