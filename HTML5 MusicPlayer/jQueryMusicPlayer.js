@@ -36,6 +36,7 @@ var Song = function (artist, song, album, url) {
 					$('#mpBody').append("<audio id='html5Player' preload='auto'></audio>");
 					var audioElement = document.getElementById("html5Player");
 					var counter = 0;
+                    audioElement.src = playlist[counter].url;
 					
 					updateDisplay(playlist[0], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
 					updateTrackTheme(counter);
@@ -83,19 +84,20 @@ var Song = function (artist, song, album, url) {
 
                     //Play/Pause button and which img.
 					 $('#btnPlayPause').live('click', function() {					
-						audioElement.src = playlist[counter].url;
+
 
 						var playPause = $('#btnPlayPause').attr("src");
                          if (playPause == playButtonSrc){
                             $('#btnPlayPause').attr("src", pauseButtonSrc);
-							
+							audioElement.play();
                          }
                          else {
                              $('#btnPlayPause').attr("src", playButtonSrc);
+                             audioElement.pause();
 							 
                          }
 						updateDisplay(playlist[counter], "#mpDisplayArtist", "#mpDisplaySong", "#mpDisplayAlbum");
-						updateTrackTheme(counter);
+						//updateTrackTheme(counter);
 					 });
 					 //Selects next song from array and updates playbutton & display
 					 $('#btnNext').live('click', function(e) {
