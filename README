@@ -1,13 +1,4 @@
-Daily workflow : http://nakedstartup.com/2010/04/simple-daily-git-workflow
+HTML5 jQuery Plugin 
+School project for WEPO
 
-To delete from the repo 
-
-You can use
-
-git add -u
-To add the deleted files to the staging area, then commit them
-
-git commit -m "Deleted files manually"
-
-
-Test after Format!
+Final running version at : http://open.is/jQueryMusicPlayer/index.html
