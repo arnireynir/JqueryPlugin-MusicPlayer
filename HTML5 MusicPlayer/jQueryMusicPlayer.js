@@ -11,6 +11,7 @@ var Song = function (artist, song, album, url) {
 	// Attach new method to jQuery    
 	$.fn.extend ({
 		// Comment.
+		// branch comment omg!.
 		// Music Player plugin begins      
 		musicPlayer: function(playlist) {
 			//Icons used in player 
