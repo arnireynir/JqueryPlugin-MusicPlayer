@@ -13,6 +13,7 @@ body {
 	width: 350px;
 	height: 500px;
 	border: 1px solid #bbb;
+	background: #fff;
 }
 
 /* Display section */
@@ -20,6 +21,44 @@ body {
 	width: 100%;
 	height: 115px;
 	border-bottom: 1px solid #ddd;
+}
+
+#mpDisplayMute {
+	width: auto;
+	margin-right: 7px;
+	margin-top: 5px;
+	text-align: right;
+}
+
+#mpDisplayTitlesContainer {
+	float: left;
+	width: 88%;
+	padding-left: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	border-left: 1px solid #eee;
+}
+
+#mpDisplayArtist {
+	font-size: 16pt;
+}
+
+#mpDisplaySong {
+	margin-top: -5px;
+	font-size: 28pt;
+}
+
+#mpDisplayAlbum {
+	font-size: 10pt;
+}
+
+#mpDisplayVolume {
+	float: left;
+	height: 70px;
+	width: 10px;
+	padding-left: 4px;
+	margin-top: 10px;
 }
 
 /* Duration bar */
@@ -82,7 +121,7 @@ body {
 }
 
 .mpControlsBorderRight {
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #eee;
 }
 
 #mpControls span {
@@ -94,6 +133,11 @@ body {
 #mpControls span:hover {
 
     border-bottom: 3px solid #F7941E;
+}
+
+#btnPlayPause {
+	width: auto;
+	height: auto;
 }
 
 
@@ -119,36 +163,6 @@ body {
 
 .mpTheme {
 	color: #F7941E;
-}
-
-/* Display section */
-#mpDisplayMute {
-	width: auto;
-	margin-right: 5px;
-	margin-top: 5px;
-	text-align: right;
-}
-
-#mpDisplayTitlesContainer {
-	width: 92%;
-	padding-left: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: left;
-	border-left: 1px solid #ccc;
-}
-
-#mpDisplayArtist {
-	font-size: 16pt;
-}
-
-#mpDisplaySong {
-	margin-top: -5px;
-	font-size: 28pt;
-}
-
-#mpDisplayAlbum {
-	font-size: 10pt;
 }
 
 

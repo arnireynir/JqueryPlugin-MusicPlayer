@@ -3,38 +3,37 @@
 <head>    
 	<title>The latest and greatest music player</title>
     <link href="MusicPlayerStylesheet.css" rel="stylesheet" type="text/css" />
-    <!--<script src="jquery.min.js"></script>-->
-	<script src="modernizr.js"></script>
+	<link href="jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css"/>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
 	<script src="niftyplayer/niftyplayer.js"></script>
-    <!-- TODO: your MusicPlayer jQuery plugin reference!!!! -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" ></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" ></script>
-	<link href="jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css"/>
-</head>
-<head>
-
+	<script src="jQueryMusicPlayer.js"></script>
 </head>
 <body>
-    <div id="thePlayer"></div> <!-- this element will host the player!! -->
-	
+    <div id="thePlayer"></div> <!-- This element will host the player -->	
     <script type="text/javascript" >
          $(document).ready( function( ) {
-
-			// Note: this version assumes a JavaScript array of songs, but
-			// the other approach is also acceptable
 			/* Song(artist, song, album, urlToSong) */						   
-			var playlist = [ new Song("Wu-Tang Clan", "Duck Seazon", "Wu-Tang Forever", "http://open.is/jQueryMusicPlayer/Wu-Tang-DuckSeazon.mp3"),
-							 new Song("Britney Spears", "Toy Soldier", "Blackout", "http://open.is/jQueryMusicPlayer/britneyspears-toysoldier.mp3"),
-							 new Song("Bitter Butter", "English", "It's Not Me, It's You", "niftyplayer/betty.mp3")];
-
-			$("#thePlayer").musicPlayer(playlist);
-			// Optionally, the function should accept an object containing optional values, 
-			// such as a boolean "autostart" value, i.e. if the player should start playing
-			// immediately etc.
+			var playlist = [ new Song("Bitter Butter", "English", "It's Not Me, It's You", "http://open.is/jQueryMusicPlayer/betty.mp3"),
+							 new Song("Wu-Tang Clan", "Duck Seazon", "Wu-Tang Forever", "http://open.is/jQueryMusicPlayer/Wu-Tang-DuckSeazon.mp3"),
+							 new Song("Britney Spears", "Toy Soldier", "Blackout", "http://open.is/jQueryMusicPlayer/britneyspears-toysoldier.mp3")];
+							 
+			var playlistOgg = [ new Song("Bitter Butter", "English", "It's Not Me, It's You", "http://open.is/jQueryMusicPlayer/betty.ogg"),
+								new Song("Wu-Tang Clan", "Duck Seazon", "Wu-Tang Forever", "http://open.is/jQueryMusicPlayer/Wu-Tang-DuckSeazon.ogg"),
+								new Song("Britney Spears", "Toy Soldier", "Blackout", "http://open.is/jQueryMusicPlayer/britneyspears-toysoldier.ogg")];
+			
+			// Checks if to play MP3's or OGG's
+			var canPlayMP3 = document.createElement('audio').canPlayType('audio/mp3');
+			if (canPlayMP3 == "no") {
+				/* Add this to generate music player (playlist, autostart (true or false)) */
+				$("#thePlayer").musicPlayer(playlistOgg, false); // OGG
+			}
+			else {
+				$("#thePlayer").musicPlayer(playlist, false); // MP3
+			}
          });
     </script>
-	
-	<script src="jQueryMusicPlayer.js"></script>
 </body>
 </html>
 
